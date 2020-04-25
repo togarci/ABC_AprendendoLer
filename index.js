@@ -1,10 +1,9 @@
 word = "URSO";
 turn = 0;
-lista = ["U", "R", "S", "O"];
 
 // funcao sumir marcardor 
 function reset(index){
-    document.getElementById(lista[index]).style.display = "none";
+    document.getElementById(word[index]).style.display = "none";
     turn = index;
 }
 
@@ -18,6 +17,7 @@ window.onload = function(){
     
     // funcao executado quando o marcador é encontrado
     markerLetraU.addEventListener('markerFound', function() {
+        console.log(markerLetraU.object3D.position)
         // condicao se o marcador encontrado estiver na letra Correta;
         document.getElementById("U").style.display = "flex";
         if(word[turn] == "U"){
@@ -36,6 +36,7 @@ window.onload = function(){
     // repeticao
     
     markerLetraR.addEventListener('markerFound', function() {
+        console.log(markerLetraR.object3D.position)
         document.getElementById('R').style.display = "flex";
         if(word[turn] == "R"){
             document.getElementById('R').style.color = "green";
@@ -51,6 +52,7 @@ window.onload = function(){
     
     // repeticao
     markerLetraS.addEventListener('markerFound', function() {
+        console.log(markerLetraS.object3D.position)
         document.getElementById('S').style.display = "flex";
         if(word[turn] == "S"){
             document.getElementById('S').style.color = "green";
@@ -65,6 +67,7 @@ window.onload = function(){
 
     // repeticao
     markerLetraO.addEventListener('markerFound', function() {
+        console.log(markerLetraO.object3D.position)
         document.getElementById('O').style.display = "flex";
         if(word[turn] == "O"){
             document.getElementById('O').style.color = "green";
