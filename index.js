@@ -1,14 +1,7 @@
 word = "URSO";
-turn = 0;
-
-// funcao sumir marcardor 
-function reset(index){
-    document.getElementById(word[index]).style.display = "none";
-    turn = index;
-}
 
 window.onload = function(){
-    // Pegando marcador 
+    // Pegando marcador
     var markerLetraU = document.getElementById('letraU');
     var markerLetraR = document.getElementById('letraR');
     var markerLetraS = document.getElementById('letraS');
@@ -17,12 +10,12 @@ window.onload = function(){
     
     // funcao executado quando o marcador é encontrado
     markerLetraU.addEventListener('markerFound', function() {
-        console.log(markerLetraU.object3D.position)
+        positions.U = markerLetraU.object3D.position.x;
         // condicao se o marcador encontrado estiver na letra Correta;
         document.getElementById("U").style.display = "flex";
-        if(word[turn] == "U"){
+        if(check("U")){
             document.getElementById('U').style.color = "green";
-            turn = turn + 1;
+
         } else{
             document.getElementById('U').style.color = "red";
         }
@@ -30,46 +23,48 @@ window.onload = function(){
     });
     // funcao caso o marcador seja perdido
     markerLetraU.addEventListener("markerLost", function() {
-        reset(0);
+        delete positions.U
+        document.getElementById("U").style.display = "none";
     });
 
     // repeticao
     
     markerLetraR.addEventListener('markerFound', function() {
-        console.log(markerLetraR.object3D.position)
+        positions.R = markerLetraR.object3D.position.x;
         document.getElementById('R').style.display = "flex";
-        if(word[turn] == "R"){
+        if(check("R")){
             document.getElementById('R').style.color = "green";
-            turn = turn + 1;
+            
         } else {
             document.getElementById('R').style.color = "red";
         }
 
     });
     markerLetraR.addEventListener("markerLost", function() {
-        reset(1);
+        delete positions.R
+        document.getElementById("R").style.display = "none";
     });
     
     // repeticao
     markerLetraS.addEventListener('markerFound', function() {
-        console.log(markerLetraS.object3D.position)
+        positions.S = markerLetraS.object3D.position.x;
         document.getElementById('S').style.display = "flex";
-        if(word[turn] == "S"){
-            document.getElementById('S').style.color = "green";
-            turn = turn + 1;
+        if(check("S")){
+            document.getElementById('S').style.color = "green";            
         } else{
             document.getElementById('S').style.color = "red";
         }
     });
     markerLetraS.addEventListener("markerLost", function() {
-        reset(2);
+        delete positions.S
+        document.getElementById("S").style.display = "none";
     });
 
     // repeticao
     markerLetraO.addEventListener('markerFound', function() {
-        console.log(markerLetraO.object3D.position)
+        positions.O = markerLetraO.object3D.position.x;
         document.getElementById('O').style.display = "flex";
-        if(word[turn] == "O"){
+        if(check("O")){
             document.getElementById('O').style.color = "green";
             document.getElementById("generico").style.display = "flex";
         } else{
@@ -77,17 +72,15 @@ window.onload = function(){
         }
     });
     markerLetraO.addEventListener("markerLost", function() {
-        reset(3);
+        delete positions.O
+        document.getElementById("O").style.display = "none";
     });
 
 
     // botões da modal
-    document.getElementsByClassName("fa-redo-alt")[0].onclick = function(){window.location.reload()}
+    document.getElementsByClassName("fa-redo")[0].onclick = function(){window.location.reload()};
     document.getElementsByClassName("fa-times-circle")[0].onclick = function(){    
         document.getElementById("generico").style.display = "none";
-        document.getElementById("modal").style.display = "none";    
     }
     
 }
-
-
