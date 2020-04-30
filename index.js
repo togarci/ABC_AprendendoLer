@@ -1,6 +1,8 @@
 word = "URSO";
 
+
 window.onload = function(){
+    if(window.innerWidth < window.innerHeight) this.alert("Vire a tela")
     // Pegando marcador
     var markerLetraU = document.getElementById('letraU');
     var markerLetraR = document.getElementById('letraR');
