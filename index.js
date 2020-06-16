@@ -2,7 +2,7 @@ word = "URSO";
 
 
 window.onload = function(){
-    if(window.innerWidth < window.innerHeight) this.alert("Vire a tela")
+    if(window.innerWidth < window.innerHeight) this.alert("Vire a tela");
     // Pegando marcador
     var markerLetraU = document.getElementById('letraU');
     var markerLetraR = document.getElementById('letraR');
@@ -14,68 +14,45 @@ window.onload = function(){
     markerLetraU.addEventListener('markerFound', function() {
         positions.U = markerLetraU.object3D.position.x;
         // condicao se o marcador encontrado estiver na letra Correta;
-        document.getElementById("U").style.display = "flex";
-        if(check("U")){
-            document.getElementById('U').style.color = "green";
-
-        } else{
-            document.getElementById('U').style.color = "red";
-        }
-        
+        add('U', u);       
     });
     // funcao caso o marcador seja perdido
     markerLetraU.addEventListener("markerLost", function() {
         delete positions.U
-        document.getElementById("U").style.display = "none";
+        document.querySelector("#qdr_plv").removeChild(document.querySelector("#U"));
     });
 
     // repeticao
     
     markerLetraR.addEventListener('markerFound', function() {
         positions.R = markerLetraR.object3D.position.x;
-        document.getElementById('R').style.display = "flex";
-        if(check("R")){
-            document.getElementById('R').style.color = "green";
-            
-        } else {
-            document.getElementById('R').style.color = "red";
-        }
-
+        add('R', r);
     });
     markerLetraR.addEventListener("markerLost", function() {
         delete positions.R
-        document.getElementById("R").style.display = "none";
+        document.querySelector("#qdr_plv").removeChild(document.querySelector("#R"));
     });
     
     // repeticao
     markerLetraS.addEventListener('markerFound', function() {
         positions.S = markerLetraS.object3D.position.x;
         document.getElementById('S').style.display = "flex";
-        if(check("S")){
-            document.getElementById('S').style.color = "green";            
-        } else{
-            document.getElementById('S').style.color = "red";
-        }
+        add('S', s);   
     });
     markerLetraS.addEventListener("markerLost", function() {
         delete positions.S
-        document.getElementById("S").style.display = "none";
+        document.querySelector("#qdr_plv").removeChild(document.querySelector("#S"));
     });
 
     // repeticao
     markerLetraO.addEventListener('markerFound', function() {
         positions.O = markerLetraO.object3D.position.x;
         document.getElementById('O').style.display = "flex";
-        if(check("O")){
-            document.getElementById('O').style.color = "green";
-            document.getElementById("generico").style.display = "flex";
-        } else{
-            document.getElementById('O').style.color = "red";
-        }
+        add('O', o);   
     });
     markerLetraO.addEventListener("markerLost", function() {
         delete positions.O
-        document.getElementById("O").style.display = "none";
+        document.querySelector("#qdr_plv").removeChild(document.querySelector("#O"));
     });
 
 

@@ -1,5 +1,9 @@
 var positions = new Object();
 
+var u = '<div id="U" class="padrao">U</div>';
+var r = '<div id="R" class="padrao">R</div>';
+var s = '<div id="S" class="padrao">S</div>';
+var o = '<div id="O" class="padrao">O</div>';
 
 function checkRight(markerFound){
     var right = false;
@@ -34,7 +38,8 @@ function checkLeft(markerFound){
 function check(markerFound){
     if((markerFound == word[0]) && (checkLeft(markerFound) == false)) return true;
     else if((markerFound == word[0]) && (checkLeft(markerFound) != false)) {
-        document.getElementById(checkLeft(markerFound)).style.color = "red";
+        document.querySelector("#qdr_plv").removeChild(document.getElementById(checkLeft(markerFound)));
+        document.getElementById(markerFound).insertAdjacentHTML('beforebegin', error);
         return true;
     }
     for(x in word){
@@ -43,4 +48,20 @@ function check(markerFound){
 
     if(checkLeft(markerFound)== false) return false;
     else if (checkLeft(markerFound) == rightWord ) return true;
+}
+
+function add(markerFound, div){
+    var error = '<div id="'+ markerFound +'" class="erro">X</div>'
+    if(document.querySelector("#qdr_plv").childElementCount == 0) {
+        document.querySelector("#qdr_plv").insertAdjacentHTML('afterbegin', div);
+    }
+    else if(checkLeft(markerFound) != false){ 
+        if(check(markerFound)) document.getElementById(checkLeft(markerFound)).insertAdjacentHTML("afterend", div);
+        else document.getElementById(checkLeft(markerFound)).insertAdjacentHTML("afterend", error);
+    }
+    else {
+        if(check(markerFound)) document.getElementById(checkRight(markerFound)).insertAdjacentHTML('beforebegin', div);
+        else document.getElementById(checkRight(markerFound)).insertAdjacentHTML('beforebegin', error);
+    }
+
 }
