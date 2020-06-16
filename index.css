@@ -1,6 +1,6 @@
 @font-face {
     font-family: Rudiment;
-    src: url(/Font/Rudiment.ttf);
+    src: url("/Font/Rudiment.ttf");
   }
 
 html{
@@ -103,9 +103,14 @@ div.erro{
 }
 @media(max-width:1000px){
     #qdr_plv{
-        top: 100px;
+        top: 140px;
     }
     div.padrao{
+        font-size: 50pt;
+        width: 70px;
+        height: 70px;
+    }
+    div.erro{
         font-size: 50pt;
         width: 70px;
         height: 70px;
