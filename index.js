@@ -36,7 +36,6 @@ window.onload = function(){
     // repeticao
     markerLetraS.addEventListener('markerFound', function() {
         positions.S = markerLetraS.object3D.position.x;
-        document.getElementById('S').style.display = "flex";
         add('S', s);   
     });
     markerLetraS.addEventListener("markerLost", function() {
@@ -47,7 +46,6 @@ window.onload = function(){
     // repeticao
     markerLetraO.addEventListener('markerFound', function() {
         positions.O = markerLetraO.object3D.position.x;
-        document.getElementById('O').style.display = "flex";
         add('O', o);   
     });
     markerLetraO.addEventListener("markerLost", function() {
