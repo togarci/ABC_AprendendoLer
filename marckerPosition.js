@@ -56,7 +56,7 @@ function add(markerFound, div){
         document.querySelector("#qdr_plv").insertAdjacentHTML('afterbegin', div);
     }
     else if(checkLeft(markerFound) != false){ 
-        if(check(markerFound) && (markerFound == "O")) document.getElementById("generico").style.display = "flex"; 
+        if((check(markerFound)) && (markerFound == "O")) document.getElementById("generico").style.display = "flex"; 
         else if(check(markerFound)) document.getElementById(checkLeft(markerFound)).insertAdjacentHTML("afterend", div);
         else document.getElementById(checkLeft(markerFound)).insertAdjacentHTML("afterend", error);
     }
