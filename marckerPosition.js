@@ -59,7 +59,9 @@ function add(markerFound, div){
         
         if(check(markerFound)) document.getElementById(checkLeft(markerFound)).insertAdjacentHTML("afterend", div);
         else document.getElementById(checkLeft(markerFound)).insertAdjacentHTML("afterend", error);
-        if((check(markerFound)) && (markerFound == "O")){} document.getElementById("generico").style.display = "flex"; 
+        if((check(markerFound)) && (markerFound == "O")){
+            document.getElementById("generico").style.display = "flex"; 
+        }
     }
     else {
         if(check(markerFound)) document.getElementById(checkRight(markerFound)).insertAdjacentHTML('beforebegin', div);
