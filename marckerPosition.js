@@ -1,10 +1,10 @@
 var positions = new Object();
+var finalizar = {'U':false, 'R':false, 'S':false, 'O':false}
 
-var u = '<div id="U" class="padrao">U</div>';
-var r = '<div id="R" class="padrao">R</div>';
-var s = '<div id="S" class="padrao">S</div>';
-var o = '<div id="O" class="padrao">O</div>';
 
+
+
+// Encontrar que esta a direita a partir da menor distancia para Mais
 function checkRight(markerFound){
     var right = false;
     for(x in positions){
@@ -20,6 +20,7 @@ function checkRight(markerFound){
     return right
 }
 
+// Encontrar que esta a esquerda a partir da menor distancia para Menos
 function checkLeft(markerFound){
     var left = false;
     for(x in positions){
@@ -35,6 +36,7 @@ function checkLeft(markerFound){
     return left
 }
 
+// Checa se esta na posição correta
 function check(markerFound){
     if((markerFound == word[0]) && (checkLeft(markerFound) == false)) return true;
     else if((markerFound == word[0]) && (checkLeft(markerFound) != false)) {
@@ -50,18 +52,29 @@ function check(markerFound){
     else if (checkLeft(markerFound) == rightWord ) return true;
 }
 
+function finish(){
+    for(x in finalizar){
+        if(finalizar[x] == false) return false;
+    }
+    return true;
+}
+
 function add(markerFound, div){
     var error = '<div id="'+ markerFound +'" class="erro">X</div>'
     if(document.querySelector("#qdr_plv").childElementCount == 0) {
         document.querySelector("#qdr_plv").insertAdjacentHTML('afterbegin', div);
+        finalizar[markerFound] = true;
     }
-    else if(checkLeft(markerFound) != false){ 
-        
-        if(check(markerFound)) document.getElementById(checkLeft(markerFound)).insertAdjacentHTML("afterend", div);
+    else if(checkLeft(markerFound) != false){
+
+        if(check(markerFound)){
+            document.getElementById(checkLeft(markerFound)).insertAdjacentHTML("afterend", div);
+            finalizar[markerFound] = true;
+        }
         else document.getElementById(checkLeft(markerFound)).insertAdjacentHTML("afterend", error);
-        if((check(markerFound)) && (markerFound == "O")){
-            document.getElementById("generico").style.display = "flex"; 
-        }   
+        if((check(markerFound)) && (markerFound == "O") && (finish())){
+            document.getElementById("generico").style.display = "flex";
+        }
     }
     else {
         if(check(markerFound)) document.getElementById(checkRight(markerFound)).insertAdjacentHTML('beforebegin', div);
