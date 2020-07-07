@@ -41,6 +41,6 @@ alfabetização, permitindo que seu dia a dia seja mais dinâmico durante a trag
 <p>Atualmente o projeto esta no processo de reconhecimento das posições das letras que compõem o objeto selecionado, bem como a detecção dos erros e acertos dessas posições na formação das palavras.</p>
 <p>Veja como esta a interface e o funcionamento do sistema:</p>
 
-![demonstracao](/img/demonstracao.gif)
+![demonstracao](img/demonstracao.gif)
 
 [**Link** para ver a demonstração.](https://togarci.github.io/ABC_AprendendoLer)
