@@ -43,4 +43,4 @@ alfabetização, permitindo que seu dia a dia seja mais dinâmico durante a trag
 
 ![demonstracao](img/demonstracao.gif)
 
-[**Link** para ver a demonstração.](https://togarci.github.io/ABC_AprendendoLer)
+[**Link** para ver a demonstração.](https://togarci.github.io/ABC_AprendendoLer/Index.html)
