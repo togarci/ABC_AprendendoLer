@@ -1,4 +1,4 @@
-# ABC---Aprendendo-a-Ler-simples-
+# ABC - Aprendendo a Ler
 <strong>Membros</strong>
 
 - Thyago Odorico Garcia
@@ -41,6 +41,6 @@ alfabetização, permitindo que seu dia a dia seja mais dinâmico durante a trag
 <p>Atualmente o projeto esta no processo de reconhecimento das posições das letras que compõem o objeto selecionado, bem como a detecção dos erros e acertos dessas posições na formação das palavras.</p>
 <p>Veja como esta a interface e o funcionamento do sistema:</p>
 
-![demonstracao](https://user-images.githubusercontent.com/59921213/82172266-14d64f00-98a0-11ea-947a-e068a87ecd4b.png)
+![demonstracao](/img/demonstracao.gif)
 
-[**Clique aqui** para ver a demonstração.](https://youtu.be/o6oBxYciyBU)
+[**Link** para ver a demonstração.](https://togarci.github.io/ABC_AprendendoLer)
